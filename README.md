@@ -14,6 +14,19 @@ If your a provider that host multiple dealers, the setup of this feed needs to o
 - **A Single File:** Add each dealer's inventory to a single file for delivery.
 - **File Per Dealer:** For each dealer, a separate file is delivered. If the dealer has multiple locations, you include all locations in that single file.
 
+
+<br>
+
+<a name="samples"></a>
+## Sample Files
+Take a look at some samples if you have not created a data feed before.
+
+- [Single Dealer CSV](https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.csv)
+- [Multiple Dealer CSV](https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-multiple-dealers.csv)
+- [Single Dealer JSON](https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.json)
+
+
+
 <br>
 
 <a name="data-types"></a>
@@ -36,6 +49,7 @@ If your a provider that host multiple dealers, the setup of this feed needs to o
         </tr>
   </tbody>
 </table>
+
 
 <br>
 
@@ -129,7 +143,7 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
     </tr>
     <tr>
       <td valign="top">Conversion New/Used</td>
-      <td valign="top"><code>conversionnewused</code></td>
+      <td valign="top"><code>conversion_newused</code></td>
       <td valign="top"><strong>*Required*</strong> Conversion New or Used condition</td>
     </tr>
     <tr>
@@ -149,17 +163,17 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
     </tr>
     <tr>
       <td valign="top">Exterior Color</td>
-      <td valign="top"><code>ecolor</code></td>
+      <td valign="top"><code>e_color</code></td>
       <td valign="top">Basque Red Pearl, Red, Bellanova White Pearl. Most cases Mfg color name is output.</td>
     </tr>
     <tr>
       <td valign="top">Interior Color</td>
-      <td valign="top"><code>icolor</code></td>
+      <td valign="top"><code>i_color</code></td>
       <td valign="top">Gasoline, Diesel, Electric Etc.</td>
     </tr>
     <tr>
       <td valign="top">Video URL</td>
-      <td valign="top"><code>youtube</code></td>
+      <td valign="top"><code>video_url</code></td>
       <td valign="top">https://www.youtube.com/watch?v=BJt1rdFZXlY</td>
     </tr>
     <tr>
@@ -178,11 +192,6 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
       <td valign="top">Short Summary of engine | 3.5L V6 (Gasoline) | 5.4L V8 (Diesel)</td>
     </tr>
     <tr>
-      <td valign="top">Images Update Timestamp</td>
-      <td valign="top"><code>datephotosupdated</code></td>
-      <td valign="top">2018-02-04T22:44:30.652Z (ISO 8601 format in UTC)</td>
-    </tr>
-    <tr>
       <td valign="top">Comments/Description</td>
       <td valign="top"><code>description</code></td>
       <td valign="top">The text description of the vehicle. HTML and Special characters will be removed/replaced and formatted as plain text. The only allowed HTML tag allowed is <br>.</td>
@@ -199,8 +208,8 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
     </tr>
     <tr>
       <td valign="top">Image URLs</td>
-      <td valign="top"><code>images</code></td>
-      <td valign="top">Comma or Pipe seperated or an Array.<br>Example: https://imgs.dealerexpress.net/picture1.jpg, https://imgs.dealerexpress.net/picture2.jpg, https://imgs.dealerexpress.net/picture3.jpg</td>
+      <td valign="top"><code>images_urls</code></td>
+      <td valign="top">Comma or Pipe seperated or an Array.<br>Example: https://imgs.dx.io/img1.jpg, https://imgs.dx.io/img2.jpg, https://imgs.dx.io/img3.jpg</td>
     </tr>
     <tr>
       <td valign="top">ConversionID at BLVD.com</td>
@@ -210,7 +219,7 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
     <tr>
       <td valign="top">In Stock Date</td>
       <td valign="top"><code>listdate</code></td>
-      <td valign="top">2018-02-04T22:44:30.652Z (ISO 8601 format in UTC)</td>
+      <td valign="top">2018-02-04T22:44:30.652Z (ISO 8601)</td>
     </tr>
     <tr>
       <td valign="top">Vehicle Link URL</td>
