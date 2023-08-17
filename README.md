@@ -20,7 +20,6 @@ If your a provider that host multiple dealers, the setup of this feed needs to o
 <a name="samples"></a>
 ## Sample Files
 Take a look at some samples if you have not created a data feed before.
-
 - [Single Dealer CSV](https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.csv)
 - [Multiple Dealer CSV](https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-multiple-dealers.csv)
 - [Single Dealer JSON](https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.json)
@@ -50,6 +49,13 @@ Take a look at some samples if you have not created a data feed before.
   </tbody>
 </table>
 
+
+
+<br>
+
+<a name="html"></a>
+## HTML
+Any HTML found in the data file gets stripped out with the exception of &lt;br&gt; within the description column. Newlines (\n) are converted to &lt;br&gt; within the description field.
 
 <br>
 
@@ -82,7 +88,8 @@ You have the option to either send the file to us or we'll fetch it from your se
 </tr>
 </tbody>
 </table>
-> **Note**  After uploading a file via FTP our system picks it up shortly after upload is complete and may no longer be visible on the FTP server after being picked up.
+
+**Note:** After uploading a file via FTP/FTPS our system picks it up shortly after upload is complete and may no longer be visible on the FTP server after being picked up.
 
 <br>
 
@@ -152,8 +159,9 @@ We'll automatically update all the vehicle's images anytime one or more image UR
 
 <br>
 
-
+<a name="file-notes"></a>
 ## File Notes
+
 <table>
 <thead>
 <tr>
@@ -164,12 +172,11 @@ We'll automatically update all the vehicle's images anytime one or more image UR
 <tbody>
 <tr>
      <td valign="top">CSV</td>
-     <td valign="top">Header Row is Optional. Header row names can be anything, but matching either name or key is preferred. Column order does not matter, however after initialization they should not change.<br><a href="https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.csv" target="_blank">View a sample CSV file</a></td>
+     <td valign="top">UTF-8 Encoding. Header Row is Optional. Header row names can be anything, but matching either name or key is preferred. Column order does not matter, however after initialization they should not change.<br><a href="https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.csv" target="_blank">View a sample CSV file</a></td>
 </tr>
 <tr>
      <td valign="top">JSON</td>
-     <td valign="top">JSON should be an Array full of Objects IE: [{},{},{}]. Each object represents one vehicle. <strong>Object key names MUST match the key names outlined below.</strong><br><a href="https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.json" target="_blank">View a sample JSON file</a></td>
-</tr>
+     <td valign="top">UTF-8 Encoding. JSON should be an Array full of Objects IE: [{},{},{}]. Each object represents one vehicle. <strong>Object key names MUST match the key names outlined below.</strong><br><a href="https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.json" target="_blank">View a sample JSON file</a></td>
 </tr>
 </tbody>
 </table>
@@ -262,12 +269,12 @@ Here are the columns BLVD.com utilizes. If you already have a feed file template
     <tr>
       <td valign="top">Exterior Color</td>
       <td valign="top"><code>e_color</code></td>
-      <td valign="top">Basque Red Pearl, Red, Bellanova White Pearl. Most cases Mfg color name is output.</td>
+      <td valign="top">Examples: Basque Red Pearl, Red, Black</td>
     </tr>
     <tr>
       <td valign="top">Interior Color</td>
       <td valign="top"><code>i_color</code></td>
-      <td valign="top">Gasoline, Diesel, Electric Etc.</td>
+      <td valign="top">Examples: Tan, Black Leather, Gray</td>
     </tr>
     <tr>
       <td valign="top">Video URL</td>
@@ -292,7 +299,7 @@ Here are the columns BLVD.com utilizes. If you already have a feed file template
     <tr>
       <td valign="top">Comments/Description</td>
       <td valign="top"><code>description</code></td>
-      <td valign="top">The text description of the vehicle. HTML and Special characters will be removed/replaced and formatted as plain text. The only allowed HTML tag allowed is <br>.</td>
+      <td valign="top">The text description of the vehicle. HTML and Special characters will be removed/replaced and formatted as plain text. The only allowed HTML tag allowed is &lt;br&gt;.</td>
     </tr>
     <tr>
       <td valign="top">Options</td>
