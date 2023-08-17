@@ -55,6 +55,7 @@ Take a look at some samples if you have not created a data feed before.
 
 <a name="delivery"></a>
 ## Delivery Methods
+You have the option to either send the file to us or we'll fetch it from your servers.  You may update your feed file as often as you like, however at least once a day is best.
 <table>
 <thead>
 <tr>
@@ -81,6 +82,7 @@ Take a look at some samples if you have not created a data feed before.
 </tr>
 </tbody>
 </table>
+> **Note**  After uploading a file via FTP our system picks it up shortly after upload is complete and may no longer be visible on the FTP server after being picked up.
 
 <br>
 
@@ -90,15 +92,21 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
 
 
 
+<br>
+
+<a name="file-naming"></a>
+## Naming Your File(s)
+You may name your files anything you like as long as they have valid file extensions (.csv or .json). However the name should remain the same with each update. Do not prepend/append your filenames with dates/times.
+##### Our Preferred Naming
+- **Single Dealer Files:** Name the file {dealerid}.csv or {dealerid}.json
+- **Multi Dealer Files:** Name the file blvd.csv or blvd.json
+
 
 <br>
 
 <a name="images"></a>
 ## Image URL's
-Images should be added via URL's to the publicly available image via HTTP/HTTPS. We'll fetch each image from the URL and host it on BLVD.com for the duration of the vehicle listing. **Vehicles without a dealer loaded image should not include a placeholder**, we'll provide our own placeholder image.
-
-### Image Types Accepted
-JPG, JPEG, PNG, WEBP
+Images should be added via URL's to the publicly available image via HTTP/HTTPS. We'll fetch each image from the URL and host it on BLVD.com for the duration of the vehicle listing. **Vehicles without a dealer loaded image should not include a placeholder**, we'll provide our own placeholder image. Image Types Accepted: **JPG, JPEG, PNG, WEBP**
 
 ### Aspect Ratio
 Image should ideally be an aspect ratio of 16:9 or 4:3.  Images greater than 4:3 in aspect ratio will be automatically cropped to 4:3 by gravitating toward center.
@@ -113,10 +121,65 @@ Images are ordered on the site as they appear in the feed file. The first image 
 We'll automatically update all the vehicle's images anytime one or more image URL's or the image ordering changes within the feed.
 
 
+
+<br>
+
+<a name="required"></a>
+## Required Columns/Fields
+<table>
+<thead>
+<tr>
+<th align="left">Column/Field</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+     <td valign="top">Dealer ID</td>
+     <td valign="top">Vehicles missing this field or containing an invalid Dealer ID will be ignored</td>
+</tr>
+<tr>
+     <td valign="top">VIN</td>
+     <td valign="top">Must be a valid 17 digit VIN. VIN's must be unique across the dealer brand. Duplicate VIN's within a dealer will result in the overwriting of prior vehicles with the same VIN. Duplicating vehicles across multiple locations is now allowed.</td>
+</tr>
+     <tr>
+     <td valign="top">Zip Code</td>
+     <td valign="top">We use this to match inventory to the correct dealer location. Vehicles with missing or invalid 5 digit zip code will default to the dealer's primary location.</td>
+</tr>
+</tbody>
+</table>
+
+
+<br>
+
+
+## File Notes
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+     <td valign="top">CSV</td>
+     <td valign="top">Header Row is Optional. Header row names can be anything, but matching either name or key is preferred. Column order does not matter, however after initialization they should not change.<br><a href="https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.csv" target="_blank">View a sample CSV file</a></td>
+</tr>
+<tr>
+     <td valign="top">JSON</td>
+     <td valign="top">JSON should be an Array full of Objects IE: [{},{},{}]. Each object represents one vehicle. <strong>Object key names MUST match the key names outlined below.</strong><br><a href="https://github.com/dealerexpress/dx-blvd-feed-guidelines/blob/master/sample-single-dealer.json" target="_blank">View a sample JSON file</a></td>
+</tr>
+</tr>
+</tbody>
+</table>
+
+
 <br>
 
 <a name="columns"></a>
 ## Columns/Fields
+Here are the columns BLVD.com utilizes. If you already have a feed file template, it should work just fine so long as the required fields are met. Adding additional fields is fine. CSV column order is not important.
 <table>
   <thead>
      <tr>
@@ -130,20 +193,20 @@ We'll automatically update all the vehicle's images anytime one or more image UR
       <td valign="top">Dealer ID</td>
       <td valign="top"><code>dealerid</code></td>
       <td valign="top">
-      <strong style="color: #ff0000">* Required *</strong><br>
-      BLVD.com Assigned Dealer ID (Preferred)<br>or<br>Provider's Assigned Dealer ID</td>
+      <strong style="color: #aa0000">* Required *</strong><br>
+      BLVD.com Assigned Dealer ID (Preferred) or Provider's Assigned Dealer ID. <a href="#required">See Requirements</a></td>
     </tr>
     <tr>
       <td valign="top">Zip Code</td>
       <td valign="top"><code>zip</code></td>
-      <td valign="top"><strong style="color: #ff0000">* Required *</strong><br>
-      Vehicles location zip code. We use this to match inventory to the correct dealer location.</td>
+      <td valign="top"><strong style="color: #aa0000">* Required *</strong><br>
+      Vehicles location 5 digit zip code. <a href="#required">See Requirements</a></td>
     </tr>
     <tr>
       <td valign="top">VIN</td>
       <td valign="top"><code>vin</code></td>
-      <td valign="top"><strong style="color: #ff0000">* Required *</strong><br>
-      A Valid 17 Digit VIN Number.</td>
+      <td valign="top"><strong style="color: #aa0000">* Required *</strong><br>
+      A Valid 17 Digit VIN Number. <a href="#required">See Requirements</a></td>
     </tr>
     <tr>
       <td valign="top">Year</td>
