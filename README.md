@@ -1,5 +1,6 @@
+<img width="220" src="img/logo.svg"><br>
 # BLVD.com Inventory Feed Guidelines
-<img align="right" width="220" src="img/logo.svg">Vehicle inventory feed specifications for sending an automated feed to BLVD.com
+Vehicle inventory feed specifications for sending an automated feed to BLVD.com
 
 
 
