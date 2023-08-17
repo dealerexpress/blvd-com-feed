@@ -1,163 +1,80 @@
-<img width="220" src="img/logo.svg"><br>
+<img align="right" width="180" src="img/logo.svg"><br>
 # BLVD.com Inventory Feed Guidelines
-Vehicle inventory feed specifications for sending an automated feed to BLVD.com
+Vehicle inventory feed specifications for sending an automated feed to [BLVD.com](https://www.blvd.com).
 
 
+## Dealers
+In most cases, we already accept a feed from your web provider and configuring a new feed is not necessary. Contact BLVD.com or your web provider to see if an automated feed is already available. If you self host your site you can review the following guidelines to begin setting up a feed.  **If you have a web provider, please share this page with them** so they can begin the setup process.
 
-Add a Brandl Mobility credit app to any site using the javascript loader. Simply copy a few lines into your site and that's it. The module is less than 2kb gzipped minified and has zero dependencies.
+<br>
 
-**Requires that your site is listed at brandlmobility.com.** If you're not already listed at [brandlmobility.com](https://www.brandlmobility.com), contact us and see about getting your mobility dealership listed. No additional security measures within your own site are required.
+## Providers
+If your a provider that host multiple dealers, the setup of this feed needs to only happen once. Future dealers can be added to your existing feed using one of the following methods.
 
-### Next Step
-Share this page with your [webmaster](#columns) . Below are the technical installation and usage instructions.
+- **A Single File:** Add each dealer's inventory to a single file for delivery.
+- **File Per Dealer:** For each dealer, a separate file is delivered. If the dealer has multiple locations, you include all locations in that single file.
 
------
+<br>
 
-<br><br>
-
-# Installation
-
-Everything you need is hosted on a CDN and may be used as shown. Use of the CDN hosted script recommended to ensure our changes get reflected at your site.
-
-### Step 1
-Decide where the links/buttons should appear on your site and add standard HTML links. Often this is on a single vehicle for sale page, somewhere near the vehicle price. 
-
-IE:
-```html
-<a href="/whatever/im/replaced" class="my-app-selector">Apply For A Loan</a>
-```
-The link can be anything you like. Feel free to wrap images, containers or other elements in an **&lt;a&gt;**. While elements such as div, span, img, etc; will work directly, some browsers may block the clicks.  So just wrap whatever in a standard link or button tag.
-
------
-### Step 2
-Place the following script loader on any page containing links/buttons for the financing application.  *You may place this in an include file such as your footer, allowing use on any page of your site.*
-```html
-<script src="https://storage.googleapis.com/dx-cdn-public/dx-shared/browser-scripts/brandl-mobility-app-loader/v1/bundle.min.js"></script>
-
-<!-- Initialize a basic loader on any page where links/buttons to the application are 
-     desired.  The following should be anywhere AFTER the script loader. -->
-<script type="application/javascript">
-var basicExample = new BrandlAppLoader({  
-   selector: 'a.my-app-selector' 
-});
-</script>
-
-```
-
-In our basic example, submissions include the dealer information and ensures correct assignment.  Optionally, you may include vehicle information. Continue reading to learn how.
-
------
-### Step 3
-Verify things are working by loading a page in your browser and clicking one of your links.  It should open a window with the application.  The dealer's name should be listed in the header directly under "Brandl obility Application".
-
-### What Next
-You can include a <a href="#parameter-vehicle"><code>vehicle</code></a> `object` in the <a href="#parameter-initializer"><code>initializer</code></a> parameter or add/update vehicle information via the <a href="#method-setVehicle">setVehicle()</a> method. 
-
-
-<br><br>
-# Debug
-If things are not working correctly, see the javascript console as errors will be displayed to help solve the issue. In Google Chrome, right click the page and choose 'Inspect'.
-
-
-
-
-<br><br>
-# Demos
-Take a look at a few common use working examples.
-<ul>
-     <li><a href="https://storage.googleapis.com/dx-cdn-public/dx-shared/browser-scripts/brandl-mobility-app-loader/v1/examples/1_basic.html" target="_blank">Basic without vehicle</a></li>
-     <li><a href="https://storage.googleapis.com/dx-cdn-public/dx-shared/browser-scripts/brandl-mobility-app-loader/v1/examples/2_include-vehicle.html" target="_blank">Include vehicle data</a></li>
-     <li><a href="https://storage.googleapis.com/dx-cdn-public/dx-shared/browser-scripts/brandl-mobility-app-loader/v1/examples/3_add-vehicle.html" target="_blank">Update vehicle using setVehicle()</a></li>
-</ul>
-
-
-
-
-<br><br>
-
-# API Reference
-
-## Constructors
-
-### - BrandlAppLoader(<a href="#parameter-initializer">initializer</a>)
-@param <a href="#parameter-initializer"><code>initializer</code></a><br>
-Used to initialize the loader.  Make sure you call it using 'new'
-```javascript 
-// Usage
-var myRef = new BrandlAppLoader(initializer);
-```
-<br><br>
-
-## Methods
-
-<a name="method-setVehicle"></a>
-### - setVehicle(<a href="#parameter-vehicle">vehicle</a>)
-@param <a href="#parameter-vehicle"><code>vehicle</code></a><br>
-Add or update the vehicle associated with application. This is useful if your site's page does not reload between vehicle views. The <a href="#parameter-vehicle"><code>vehicle</code></a> object may also be passed in the <a href="#parameter-initializer">`initializer`</a> object.
-```javascript 
-// Usage
-myRef.setVehicle(vehicle);
-```
-
-### - getVehicle()
-@returns <a href="#parameter-vehicle"><code>vehicle</code></a><br>
-Get the current <a href="#parameter-vehicle"><code>vehicle</code></a> `object`. 
-```javascript 
-// Usage
-myRef.getVehicle();
-```
-
-### - resetVehicle()
-Clear current set vehicle. 
-```javascript 
-// Usage
-myRef.resetVehicle();
-```
-
-### - open()
-Open the apply window with current settings. If already open, bring to focus. 
-```javascript 
-// Usage
-myRef.open();
-```
-
-### - getElements()
-@returns list of elements on the page that have been activated. 
-```javascript 
-// Usage
-myRef.getElements();
-```
-
-
-
-
-<br><br>
-<a name="parameter-initializer"></a>
-## Delivery Methods
+### Accepted Data Types
 <table>
   <thead>
-       <tr>
-      <th align="left">Name</th>
+    <tr>
       <th align="left">Type</th>
       <th align="left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td valign="top"><code>selector</code></td>
-      <td valign="top">string</td>
-      <td valign="top"><strong>Required</strong>. The selector to find your elements on the page created in step 1. You might find it best to assign a class to each link/button that is only used for selecting and is separate from styles. All elements matching the provided selector will be modified to open/continue filling out a credit app. Internally, we use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll" target="_blank">document.querySelectorAll()</a> to find elements matching provided selector string.</td>
+      <td valign="top"><strong>CSV</strong></td>
+      <td valign="top">A standard CSV (Comma Separated Values). With or without a header row is fine, however including a header row is preferred. Column order can be anything you like. CSV data needs to conform to <a href="https://datatracker.ietf.org/doc/html/rfc4180" target="_blank">RFC 4180</a> standards.</td>
     </tr>
     <tr>
-      <td valign="top"><a href="#parameter-vehicle"><code>vehicle</code></a></td>
-      <td valign="top">object</td>
-      <td valign="top">An object with information about the vehicle being applied for. <a href="#parameter-vehicle">See vehicle definition</a></td>
-    </tr>
+          <td valign="top"><strong>JSON</strong></td>
+          <td valign="top">We accept data as a JSON Array full of Objects. One object per vehicle. Key names are required to match the specification outlined below in the <a href="#columns">Columns/Fields</a> section. JSON data needs to conform to <a href="https://datatracker.ietf.org/doc/html/rfc4627" target="_blank">RFC 4627</a> standards.</td>
+        </tr>
   </tbody>
 </table>
 
+<br>
 
-<br><br>
+<a name="delivery"></a>
+## Delivery Methods
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+     <th align="left">Direction</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+     <td valign="top">FTP</td>
+     <td valign="top">Provider Sends</td>
+     <td valign="top"><strong>Host: </strong>ftp://api.dealerexpress.net<br><strong>Port: </strong>21<br>Send your file(s) via standard FTP over a non-secure connection.</td>
+</tr>
+<tr>
+     <td valign="top">FTPS</td>
+     <td valign="top">Provider Sends</td>
+     <td valign="top"><strong>Host: </strong>ftps://api.dealerexpress.net<br><strong>Port: </strong>990<br>Send your file(s) via standard FTP over an implicit SSL/TLS secure connection.</td>
+</tr>
+     <tr>
+     <td valign="top">HTTP/HTTPS</td>
+     <td valign="top">BLVD Fetches</td>
+     <td valign="top">You may host the file on your servers or in the cloud and we'll retrieve the file from the URL you provide us. You'll need to update the file on your end as inventory changes or at least daily. The URL endpoint must be a publicly available endpoint.</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<a name="columns"></a>
+## FTP/FTPS Username & Password
+When you are ready to begin sending your feed to BLVD.com, please contact us and we'll provide you with credentials you can use to log on to the FTP/FTPS server.
+
+<br>
+
 <a name="columns"></a>
 ## Columns/Fields
 <table>
@@ -313,5 +230,8 @@ myRef.getElements();
 </table>
 
 
+<br><br>
+<a name="contact"></a>
+## Contact Information
 
 
