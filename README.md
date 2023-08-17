@@ -1,14 +1,14 @@
-# BLVD.com Inventory Feed Guidelines V2
-Vehicle inventory feed specifications for sending an automated feed to BLVD.com
+# BLVD.com Inventory Feed Guidelines
+<img align="right" width="220" src="img/logo.svg">Vehicle inventory feed specifications for sending an automated feed to BLVD.com
 
-<img width="220" src="https://storage.googleapis.com/dx-cdn-public/dx-shared/browser-scripts/brandl-mobility-app-loader/v1/assets/brandl-logo.svg">
 
-<img align="right" width="220" src="https://storage.googleapis.com/dx-cdn-public/dx-shared/browser-scripts/brandl-mobility-app-loader/v1/assets/screenshot.png">Add a Brandl Mobility credit app to any site using the javascript loader. Simply copy a few lines into your site and that's it. The module is less than 2kb gzipped minified and has zero dependencies. 
+
+Add a Brandl Mobility credit app to any site using the javascript loader. Simply copy a few lines into your site and that's it. The module is less than 2kb gzipped minified and has zero dependencies.
 
 **Requires that your site is listed at brandlmobility.com.** If you're not already listed at [brandlmobility.com](https://www.brandlmobility.com), contact us and see about getting your mobility dealership listed. No additional security measures within your own site are required.
 
 ### Next Step
-Share this page with your webmaster. Below are the technical installation and usage instructions.
+Share this page with your [webmaster](#columns) . Below are the technical installation and usage instructions.
 
 -----
 
