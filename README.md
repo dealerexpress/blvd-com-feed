@@ -88,6 +88,31 @@ Take a look at some samples if you have not created a data feed before.
 ## FTP/FTPS Username & Password
 When you are ready to begin sending your feed to BLVD.com, please contact us and we'll provide you with credentials you can use to log on to the FTP/FTPS server.
 
+
+
+
+<br>
+
+<a name="images"></a>
+## Image URL's
+Images should be added via URL's to the publicly available image via HTTP/HTTPS. We'll fetch each image from the URL and host it on BLVD.com for the duration of the vehicle listing. **Vehicles without a dealer loaded image should not include a placeholder**, we'll provide our own placeholder image.
+
+#### Image Types Accepted
+JPG, JPEG, PNG, WEBP
+
+#### Aspect Ratio
+Image should ideally be an aspect ratio of 16:9 or 4:3.  Images greater than 4:3 in aspect ratio will be automatically cropped to 4:3 by gravitating toward center.
+
+#### Image Size
+**Send the largest/best quality image you have.** If you have the original uploaded image available, they work best as each time compression happens the quality is reduced. We'll perform resize and compression to optimize for BLVD.com.
+
+#### Ordering Images
+Images are ordered on the site as they appear in the feed file. The first image will be the primary image used when customers are browsing vehicle listings.
+
+#### Updating An Image
+We'll automatically update all the vehicle's images anytime one or more image URL's or the image ordering changes within the feed.
+
+
 <br>
 
 <a name="columns"></a>
@@ -102,19 +127,23 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
   </thead>
   <tbody>
     <tr>
-      <td valign="top">Dealer ID (DX)</td>
+      <td valign="top">Dealer ID</td>
       <td valign="top"><code>dealerid</code></td>
-      <td valign="top">Unique dealer id assigned by Dealer Express API. For multiple location dealers, this is the same for each location.</td>
+      <td valign="top">
+      <strong style="color: #ff0000">* Required *</strong><br>
+      BLVD.com Assigned Dealer ID (Preferred)<br>or<br>Provider's Assigned Dealer ID</td>
     </tr>
     <tr>
       <td valign="top">Zip Code</td>
       <td valign="top"><code>zip</code></td>
-      <td valign="top">Vehicles location zip code. We use this to match inventory to the correct dealer location.</td>
+      <td valign="top"><strong style="color: #ff0000">* Required *</strong><br>
+      Vehicles location zip code. We use this to match inventory to the correct dealer location.</td>
     </tr>
     <tr>
       <td valign="top">VIN</td>
       <td valign="top"><code>vin</code></td>
-      <td valign="top"><strong>*Required*</strong> 17 Digit VIN Number.</td>
+      <td valign="top"><strong style="color: #ff0000">* Required *</strong><br>
+      A Valid 17 Digit VIN Number.</td>
     </tr>
     <tr>
       <td valign="top">Year</td>
@@ -139,12 +168,18 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
     <tr>
       <td valign="top">New/Used (Chassis)</td>
       <td valign="top"><code>newused</code></td>
-      <td valign="top"><strong>*Required*</strong> Chassis New or Used condition</td>
+      <td valign="top"><strong>Used Values:</strong> Used, used, USED, U<br>
+      <strong>New Values:</strong> New, new, NEW, N<br>
+      Defaults to Used
+      </td>
     </tr>
     <tr>
-      <td valign="top">Conversion New/Used</td>
+      <td valign="top">New/Used (Conversion)</td>
       <td valign="top"><code>conversion_newused</code></td>
-      <td valign="top"><strong>*Required*</strong> Conversion New or Used condition</td>
+      <td valign="top"><strong>Used Values:</strong> Used, used, USED, U<br>
+            <strong>New Values:</strong> New, new, NEW, N<br>
+            Defaults to "Chassis New/Used"
+      </td>
     </tr>
     <tr>
       <td valign="top">Conversion Name</td>
@@ -154,12 +189,12 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
     <tr>
       <td valign="top">Stock Number</td>
       <td valign="top"><code>stock</code></td>
-      <td valign="top"><strong>*Required*</strong> 4584B, 45215</td>
+      <td valign="top">Examples: 4584B, 45215</td>
     </tr>
     <tr>
       <td valign="top">List Price</td>
       <td valign="top"><code>price</code></td>
-      <td valign="top">19900, 28000, All non numeric characters will be striped. All characters after a period (.) will be stripped. $19,900.99 --> 19900</td>
+      <td valign="top">All non numeric characters will be striped. All characters after a period (.) will be stripped. $19,900.99 --> 19900.<br>Examples: '$19,900', '19900', '28000'</td>
     </tr>
     <tr>
       <td valign="top">Exterior Color</td>
@@ -240,8 +275,5 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
 </table>
 
 
-<br><br>
-<a name="contact"></a>
-## Contact Information
 
 
