@@ -97,19 +97,19 @@ When you are ready to begin sending your feed to BLVD.com, please contact us and
 ## Image URL's
 Images should be added via URL's to the publicly available image via HTTP/HTTPS. We'll fetch each image from the URL and host it on BLVD.com for the duration of the vehicle listing. **Vehicles without a dealer loaded image should not include a placeholder**, we'll provide our own placeholder image.
 
-#### Image Types Accepted
+### Image Types Accepted
 JPG, JPEG, PNG, WEBP
 
-#### Aspect Ratio
+### Aspect Ratio
 Image should ideally be an aspect ratio of 16:9 or 4:3.  Images greater than 4:3 in aspect ratio will be automatically cropped to 4:3 by gravitating toward center.
 
-#### Image Size
+### Image Size
 **Send the largest/best quality image you have.** If you have the original uploaded image available, they work best as each time compression happens the quality is reduced. We'll perform resize and compression to optimize for BLVD.com.
 
-#### Ordering Images
+### Ordering Images
 Images are ordered on the site as they appear in the feed file. The first image will be the primary image used when customers are browsing vehicle listings.
 
-#### Updating An Image
+### Updating An Image
 We'll automatically update all the vehicle's images anytime one or more image URL's or the image ordering changes within the feed.
 
 
